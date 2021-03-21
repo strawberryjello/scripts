@@ -26,4 +26,19 @@ module FilenameUtils
       end
     end
   end
+
+  def rename_to_number(dir, filenames)
+    separator = "."
+    counter = 1
+
+    filenames.each do |f|
+      extension = f.split(separator)[1]
+      page_number = left_zero_pad(counter.to_s, 3)
+      new_filename = page_number + separator + extension
+      puts new_filename
+      counter += 1
+
+      File.rename(File.join(dir, f), File.join(dir, new_filename))
+    end
+  end
 end
