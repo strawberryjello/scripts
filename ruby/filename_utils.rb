@@ -27,9 +27,8 @@ module FilenameUtils
     end
   end
 
-  def rename_to_number(dir, filenames)
+  def rename_to_number(dir, filenames, counter=1)
     separator = "."
-    counter = 1
 
     filenames.each do |f|
       extension = f.split(separator)[1]
